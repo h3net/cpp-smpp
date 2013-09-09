@@ -35,9 +35,9 @@ FIND_PATH(THRIFT_INCLUDE_DIR Thrift.h PATH_SUFFIXES thrift)
 INCLUDE_DIRECTORIES(${THRIFT_INCLUDE_DIR})
 
 add_executable(unittest ${unitheaders} testrun.cpp)
-target_link_libraries(unittest ${cppunitpath} smpp ${Boost_LIBRARIES} oclog)
+target_link_libraries(unittest ${cppunitpath} smpp ${Boost_LIBRARIES} ${OCLOG_LIB})
 add_test(cpp-unit-test unittest)
 
 add_executable(livetest ${liveheaders} livetest.cpp)
-target_link_libraries(livetest ${cppunitpath} smpp ${Boost_LIBRARIES} oclog)
+target_link_libraries(livetest ${cppunitpath} smpp ${Boost_LIBRARIES} ${OCLOG_LIB})
 add_test(live-test livetest)
